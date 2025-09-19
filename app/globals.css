@@ -1,0 +1,39 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body { 
+  @apply bg-white text-black transition-colors duration-300; 
+}
+.dark body { 
+  @apply bg-black text-white; 
+}
+
+.container { 
+  @apply max-w-7xl mx-auto px-4; 
+}
+
+/* Animated gradient */
+@keyframes gradientMove {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+.animate-gradient {
+  background-size: 200% 200%;
+  animation: gradientMove 10s ease infinite;
+}
+
+/* Strong glow effect */
+.glow-strong {
+  filter: drop-shadow(0 0 25px rgba(59,130,246,0.6)); /* brand blue glow */
+}
+@layer components {
+  .form-input {
+    @apply w-full rounded-xl px-3 py-2 border outline-none transition-colors;
+    @apply bg-white text-black placeholder-gray-500 border-gray-300;
+    @apply dark:bg-slate-900 dark:text-white dark:placeholder-white/60 dark:border-white/20;
+    @apply focus:ring-2 focus:ring-indigo-500;
+  }
+}
